@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&M Accessories | Bisutería, Joyería & Complementos</title>
+    <style>
+        /* --- ESTILOS GENERALES Y PALETA DE COLORES --- */
+        :root {
+            --bg-principal: #0f0f11;
+            --bg-tarjeta: #16161a;
+            --dorado: #d4af37;
+            --dorado-hover: #aa8625;
+            --texto-blanco: #ffffff;
+            --texto-gris: #a0a0ab;
+            --borde: #26262e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-blanco);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- ENCABEZADO / NAVBAR --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--borde);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dorado);
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: var(--texto-gris);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--dorado);
+        }
+
+        /* --- SECCIÓN HERO --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #18181c 0%, var(--bg-principal) 100%);
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 1px solid #222228;
+        }
+
+        .hero-tag {
+            color: var(--dorado);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--dorado);
+            font-weight: 600;
+        }
+
+        .hero p {
+            color: var(--texto-gris);
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            font-size: 1.1rem;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-hover) 100%);
+            color: #000;
+            font-weight: 700;
+            padding: 14px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        /* --- TÍTULOS DE SECCIÓN --- */
+        .section-header {
+            text-align: center;
+            margin: 60px 0 30px 0;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section-header .line {
+            width: 50px;
+            height: 2px;
+            background-color: var(--dorado);
+            margin: 10px auto 0 auto;
+        }
+
+        /* --- COLECCIÓN / SERVICIOS (TARJETAS) --- */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background-color: var(--bg-tarjeta);
+            border: 1px solid var(--borde);
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--dorado);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--texto-blanco);
+        }
+
+        .card p {
+            color: var(--texto-gris);
+            font-size: 0.95rem;
+        }
+
+        /* --- TESTIMONIOS --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .testimonial-card {
+            background-color: #141418;
+            border-left: 3px solid var(--dorado);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .testimonial-text {
+            color: #c0c0ca;
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            color: var(--dorado);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- FORMULARIO DE CONTACTO --- */
+        .contact-box {
+            background-color: var(--bg-tarjeta);
+            border: 1px solid var(--borde);
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--texto-gris);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: #0b0b0d;
+            border: 1px solid #33333d;
+            padding: 12px 15px;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--dorado);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            border-top: 1px solid var(--borde);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .social-links a {
+            color: var(--dorado);
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.8;
+        }
+
+        .copyright {
+            margin-top: 15px;
+            color: #666673;
+            font-size: 0.8rem;
+        }
+
+        /* --- ADAPTABILIDAD MÓVIL --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .contact-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 1. Encabezado / Navegación -->
+        <header>
+            <div class="logo">R&M ACCESSORIES</div>
+            <nav>
+                <a href="#coleccion">Colección</a>
+                <a href="#testimonios">Opiniones</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </header>
+
+        <!-- 2. Hero Section -->
+        <section class="hero">
+            <div class="hero-tag">Joyería & Bisutería Exclusiva</div>
+            <h1>Detalles Únicos que Elevan tu <span>Estilo Diario</span></h1>
+            <p>Descubre nuestra cuidada selección de pulseras, zarcillos, anillos, tobilleras, joyeros elegantes y termos diseñados para jóvenes profesionales y personas con estilo único.</p>
+            <a href="#contacto" class="btn-cta">Comprar Ahora</a>
+        </section>
+
+        <!-- 3. Sección de Colección y Categorías -->
+        <section id="coleccion">
+            <div class="section-header">
+                <h2>Nuestra Colección</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="grid-cards">
+                <div class="card">
+                    <div class="card-icon">✨</div>
+                    <h3>Pulseras & Anillos</h3>
+                    <p>Diseños atemporales y sofisticados pensados para combinar entre sí o lucir con distinción individual.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💎</div>
+                    <h3>Zarcillos & Tobilleras</h3>
+                    <p>Piezas ligeras y con acabados finos que aportan un destello delicado y moderno a tu atuendo.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎁</div>
+                    <h3>Joyeros & Termos</h3>
+                    <p>Complementos funcionales y elegantes. Organiza tus accesorios favoritos o lleva tu estilo a todos lados.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Sección de Testimonios -->
+        <section id="testimonios">
+            <div class="section-header">
+                <h2>Lo que Dicen Nuestros Clientes</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Los accesorios de R&M tienen un acabado impecable. Mis pulseras y anillos se ven elegantes y combinan perfecto con mis outfits de trabajo."</p>
+                    <span class="testimonial-author">— Valeria M., Joven Profesional</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Compré un joyero y varios zarcillos para regalar. La presentación y los detalles fueron de excelente calidad. ¡Súper recomendados!"</p>
+                    <span class="testimonial-author">— Camilo R., Cliente Frecuente</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Formulario de Contacto -->
+        <section id="contacto">
+            <div class="section-header">
+                <h2>Haz tu Pedido o Consulta</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="contact-box">
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias por tu mensaje! Te contactaremos pronto.');">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" class="form-control" placeholder="Ej. María García" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">WhatsApp / Teléfono</label>
+                        <input type="tel" id="telefono" class="form-control" placeholder="Ej. +58 412 0000000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="interes">¿Qué artículos te interesan?</label>
+                        <input type="text" id="interes" class="form-control" placeholder="Ej. Pulseras, Zarcillos, Joyeros...">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje o Consulta</label>
+                        <textarea id="mensaje" class="form-control" placeholder="Escribe aquí tus dudas sobre precios, envíos o disponibilidad..."></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn-cta" style="border: none; cursor: pointer;">Enviar Mensaje</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- 6. Pie de Página -->
+        <footer>
+            <div class="social-links">
+                <a href="#">Instagram: @RM_Accesorios</a>
+                <a href="#">WhatsApp Directo</a>
+                <a href="#">TikTok: @RM_Accesorios</a>
+            </div>
+            <div class="copyright">
+                © 2026 R&M Accessories. Todos los derechos reservados.
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
